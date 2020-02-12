@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <base target="top">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <?!= include("deals-css"); ?>
+</head>
+
+<body>
+
+<div class="navbar-fixed">
+    <nav>
+        <div class="nav-wrapper">
+            <a href="#" class="brand-logo right">CRM</a>
+            <ul id="nav-mobile" class="left hide-on-med-and-down">
+                <li>
+                    <?var url = getScriptUrl();?>
+                    <a href='<?=url?>?page=leads'>
+                        <input class="waves-effect waves-teal btn-flat" type='button' name='button' value='Leads'>
+                    </a>
+                </li>
+                <li>
+                    <?var url = getScriptUrl();?>
+                    <a href='<?=url?>?page=oportunidades'>
+                        <input class="waves-effect waves-teal btn-flat" type='button' name='button' value='Oportunidades'>
+                    </a>
+                </li>
+                <li>
+                    <?var url = getScriptUrl();?>
+                    <a href='<?=url?>?page=agenda'>
+                        <input class="waves-effect waves-teal btn-flat" type='button' name='button' value='Agenda'>
+                    </a>
+                </li>
+                <li>
+                    <?var url = getScriptUrl();?>
+                    <a href='<?=url?>?page=signeasy'>
+                        <input class="waves-effect waves-teal btn-flat" type='button' name='button' value='Signeasy'>
+                    </a>
+                </li>
+                <li>
+                    <?var url = getScriptUrl();?>
+                    <a href='<?=url?>?page=kissflow'>
+                        <input class="waves-effect waves-teal btn-flat" type='button' name='button' value='Kissflow'>
+                    </a>
+                </li>
+            </ul>
+
+        </div>
+    </nav>
+</div>
+
+<div class="container" id="test">
+    <h3 class="red-text text-accent-2">Kissflow</h3>
+</div>
+
+<div class="container">
+
+    <div class="row">
+        <div class="col s12">
+
+            <table class="highlight">
+                <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>FECHA DE ASIG.</th>
+                    <th>MARCA</th>
+                    <th>RANK</th>
+                    <th>MICROZONA</th>
+                    <th>FECHA ÚLTIMO ESTADO</th>
+                </tr>
+                </thead>
+
+                <tbody id="table-body">
+
+                </tbody>
+            </table>
+
+        </div>
+
+    </div>
+    <!-- CLOSE ROW -->
+
+</div>
+<!-- CLOSE CONTAINER -->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+<?!= include("deals-js"); ?>
+
+</body>
+
+</html>

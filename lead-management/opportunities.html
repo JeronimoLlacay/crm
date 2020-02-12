@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <base target="top">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <?!= include("opportunities-css"); ?>
+</head>
+
+<body>
+
+<div class="navbar-fixed">
+    <nav>
+        <div class="nav-wrapper">
+            <a href="#" class="brand-logo right">CRM</a>
+            <ul id="nav-mobile" class="left hide-on-med-and-down">
+                <li>
+                    <?var url = getScriptUrl();?>
+                    <a href='<?=url?>?page=leads'>
+                        <input class="waves-effect waves-teal btn-flat" type='button' name='button' value='Leads'>
+                    </a>
+                </li>
+                <li>
+                    <?var url = getScriptUrl();?>
+                    <a href='<?=url?>?page=oportunidades'>
+                        <input class="waves-effect waves-teal btn-flat" type='button' name='button' value='Oportunidades'>
+                    </a>
+                </li>
+                <li>
+                    <?var url = getScriptUrl();?>
+                    <a href='<?=url?>?page=agenda'>
+                        <input class="waves-effect waves-teal btn-flat" type='button' name='button' value='Agenda'>
+                    </a>
+                </li>
+                <li>
+                    <?var url = getScriptUrl();?>
+                    <a href='<?=url?>?page=signeasy'>
+                        <input class="waves-effect waves-teal btn-flat" type='button' name='button' value='Signeasy'>
+                    </a>
+                </li>
+                <li>
+                    <?var url = getScriptUrl();?>
+                    <a href='<?=url?>?page=kissflow'>
+                        <input class="waves-effect waves-teal btn-flat" type='button' name='button' value='Kissflow'>
+                    </a>
+                </li>
+            </ul>
+
+        </div>
+    </nav>
+</div>
+
+<div class="container" id="test">
+    <h3 class="red-text text-accent-2">Oportunidades</h3>
+</div>
+
+<div class="container">
+
+    <div class="row">
+        <div class="input-field col s6">
+            <input placeholder="" id="brandname" type="text" class="validate">
+            <label for="brandname">Marca</label>
+        </div>
+        <div class="input-field col s6">
+            <select id="status">
+                <option value="" disabled selected></option>
+                <option value="1">En contacto</option>
+                <option value="2">Decision maker</option>
+            </select>
+            <label>Cambiar estado</label>
+        </div>
+    </div>
+
+    <div class="input-field col s6">
+        <button class="btn waves-effect waves-light" type="submit" id="btn">Enviar
+            <i class="material-icons right">send</i>
+        </button>
+        <script>
+            document.getElementById("btn").addEventListener("click", doStuff);
+
+            function doStuff() {
+
+                var brand = document.getElementById("brandname").value;
+
+                google.script.run.userClicked(brand);
+
+                document.getElementById("brandname").value = "";
+            }
+        </script>
+    </div>
+</div>
+<!-- CLOSE CONTAINER -->
+
+<div class="container">
+
+    <div class="row">
+        <div class="col s12">
+
+            <table class="highlight">
+                <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>FECHA DE ASIG.</th>
+                    <th>MARCA</th>
+                    <th>RANK</th>
+                    <th>TELÉFONO</th>
+                    <th>NUEVO TEL</th>
+                    <th>DECISION MAKER</th>
+                    <th>MAIL</th>
+                    <th>ESTADO</th>
+                    <th>FECHA PROX CONT.</th>
+                </tr>
+                </thead>
+
+                <tbody id="table-body">
+
+                </tbody>
+            </table>
+
+        </div>
+
+    </div>
+    <!-- CLOSE ROW -->
+
+</div>
+<!-- CLOSE CONTAINER -->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+<?!= include("opportunities-js"); ?>
+
+</body>
+
+</html>
